@@ -4,6 +4,7 @@ from math import sqrt
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def nao_entre_em_panico():
 
