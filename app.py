@@ -5,22 +5,24 @@ from math import sqrt
 app = Flask(__name__)
 
 @app.route('/')
+def nao_entre_em_panico():
 
-nmax = 100
+    proximo = 1
+    anterior = 0
+    limite = 50
+    found = 0
+    resposta = "0,"
 
-    n1 = 0
-    n2 = 1
-    cont = 0
-    fib = 0
 
-    fib = ("Esses são os 100 primeiros numeros da razão Fibonacci: <br> <br>")
+    while (found < limite):
+       tmp = proximo
+       proximo = proximo + anterior
+       anterior = tmp
+       found=found+1
+       resposta+= str(proximo) + ","
 
-    while cont < nmax:
-        fib = n1 + n2
-        n1 = n2
-        n2 = fib
-        cont = cont + 1
-    return fib
+    return resposta
+
 
 if __name__ == "__main__":
       port = int(os.environ.get("port", 5000))
